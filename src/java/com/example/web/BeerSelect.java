@@ -6,7 +6,11 @@
 
 package com.example.web;
 
+import com.example.model.*;
 import java.io.*;
+import java.util.Iterator;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +29,13 @@ public class BeerSelect extends HttpServlet {
                       HttpServletResponse response)
                       throws IOException, ServletException {
 
-    response.setContentType("text/html");
-    PrintWriter out = response.getWriter();
-    out.println("Beer Selection Advise<br>");
     String c = request.getParameter("color");
-    out.print("<br>Got beer color " + c );
-  }
-}
+    BeerExpert be = new BeerExpert();
+    List result = be.getBrands(c);
+    
+    request.setAttribute("styles", result);
+    RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+    view.forward(request, response);
+    }
+ 
+} 

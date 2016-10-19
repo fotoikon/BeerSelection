@@ -15,8 +15,12 @@
             Iterator it = styles.iterator();
             while(it.hasNext()) {
                 out.print("<br>try: " + it.next());
-            }
+            }         
         %>
-        
+        </br></br>
+        <%
+            int sessions=(Integer)request.getAttribute("all_sessions");
+            out.println(" The number of sessions are "+sessions+" ");
+        %>
     </body>
 </html>

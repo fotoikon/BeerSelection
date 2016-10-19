@@ -9,9 +9,11 @@ package com.example.model;
 import java.util.*;
 
 public class BeerExpert {
-   public List getBrands(String color) {
+    
 
-     List types = new ArrayList();
+    public List getBrands(String color) {
+
+    List types = new ArrayList();
 
        switch (color) {
            case "amber":
@@ -34,6 +36,6 @@ public class BeerExpert {
            default:
                break;
        }
-     return(types);
+    return(types);
    }
 }
